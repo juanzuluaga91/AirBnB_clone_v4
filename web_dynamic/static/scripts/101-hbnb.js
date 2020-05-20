@@ -83,7 +83,7 @@ $(document).ready(function () {
       $.get(`http://0.0.0.0:5001/api/v1/places/${$(this).attr('data-id')}/reviews`, function (data) {
         for (const review of data) {
           const dateString = (new Date(Date.parse(review.updated_at))).toDateString();
-          const template = `<li><h3>From ${users[review.user_id]} the ${dateString}</h3>
+          const template = `<li><h3>From ${users[review.user_id]} on ${dateString}</h3>
             <p>${review.text}</p>
           </li>`;
           ul.append(template);
