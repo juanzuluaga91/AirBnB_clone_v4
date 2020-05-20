@@ -12,7 +12,7 @@ $(document).ready(function () {
   $('.amenities .popover input').on('change', function () {
     if ($(this).is(':checked')) {
       checkedAmenities[$(this).attr('data-name')] = $(this).attr('data-id');
-    } else if ($(this).is(':not(:checked)')) {
+    } else {
       delete checkedAmenities[$(this).attr('data-name')];
     }
     $('.amenities h4').text(Object.keys(checkedAmenities).sort().join(', '));
@@ -21,9 +21,9 @@ $(document).ready(function () {
   const checkedStates = {};
   $('.state_input').on('change', function () {
     if ($(this).is(':checked')) {
-      checkedStates[$(this).attr('data-id')] = $(this).attr('data-name');
+      checkedStates[$(this).attr('data-name')] = $(this).attr('data-id');
     } else {
-      delete checkedStates[$(this).attr('data-id')];
+      delete checkedStates[$(this).attr('data-name')];
     }
     $('.locations h4').text(Object.keys(checkedStates).sort().join(', '));
   });
@@ -31,9 +31,9 @@ $(document).ready(function () {
   const checkedCities = {};
   $('.city_input').on('change', function () {
     if ($(this).is(':checked')) {
-      checkedCities[$(this).attr('data-id')] = $(this).attr('data-name');
+      checkedCities[$(this).attr('data-name')] = $(this).attr('data-id');
     } else {
-      delete checkedCities[$(this).attr('data-id')];
+      delete checkedCities[$(this).attr('data-name')];
     }
   });
 
