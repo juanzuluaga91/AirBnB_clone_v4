@@ -32,19 +32,19 @@ $(document).ready(function () {
       data: JSON.stringify({ amenities: Object.keys(checkedAmenities) }),
       success: function (data) {
         $('SECTION.places').empty();
-        for (const r of data) {
+        for (const place of data) {
           const article = ['<article>',
             '<div class="title_box">',
-          `<h2>${r.name}</h2>`,
-          `<div class="price_by_night">$${r.price_by_night}</div>`,
+          `<h2>${place.name}</h2>`,
+          `<div class="price_by_night">$${place.price_by_night}</div>`,
           '</div>',
           '<div class="information">',
-          `<div class="max_guest">${r.max_guest} Guest(s)</div>`,
-          `<div class="number_rooms">${r.number_rooms} Bedroom(s)</div>`,
-          `<div class="number_bathrooms">${r.number_bathrooms} Bathroom(s)</div>`,
+          `<div class="max_guest">${place.max_guest} Guest(s)</div>`,
+          `<div class="number_rooms">${place.number_rooms} Bedroom(s)</div>`,
+          `<div class="number_bathrooms">${place.number_bathrooms} Bathroom(s)</div>`,
           '</div>',
           '<div class="description">',
-          `${r.description}`,
+          `${place.description}`,
           '</div>',
           '</article>'];
           $('SECTION.places').append(article.join(''));
